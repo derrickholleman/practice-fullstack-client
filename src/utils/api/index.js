@@ -1,4 +1,4 @@
-const USERS_URL = "http://localhost:5000/users";
+const USERS_URL = process.env.DATABASE_URL || "http://localhost:5000/users";
 
 export async function listUsers() {
   try {
