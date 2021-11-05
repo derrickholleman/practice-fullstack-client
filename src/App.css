@@ -1,0 +1,9 @@
+.App {
+  max-width: 85%;
+  margin: 1rem auto;
+}
+
+.user-links a {
+  display: block;
+  margin: 1rem 0;
+}
