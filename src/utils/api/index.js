@@ -1,8 +1,8 @@
-const USERS_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+const URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
 
 export async function listUsers() {
   try {
-    const usersRes = await fetch(`${USERS_URL}/users`);
+    const usersRes = await fetch(`${URL}/users`);
     return await usersRes.json();
   } catch (err) {
     console.error(err);
@@ -11,7 +11,7 @@ export async function listUsers() {
 
 export async function readUser(userId) {
   try {
-    const usersRes = await fetch(`${USERS_URL}/users/${userId}`);
+    const usersRes = await fetch(`${URL}/users/${userId}`);
     return await usersRes.json();
   } catch (err) {
     console.error(err);
@@ -20,7 +20,7 @@ export async function readUser(userId) {
 
 export async function getAvgAge() {
   try {
-    const ageRes = await fetch(`${USERS_URL}/users/average-age`);
+    const ageRes = await fetch(`${URL}/users/average-age`);
     return await ageRes.json();
   } catch (err) {
     console.error(err);
