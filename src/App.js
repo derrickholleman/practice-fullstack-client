@@ -3,6 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Users from "./Users";
 import Home from "./Home";
 import User from "./User";
+import CreateUser from "./CreateUser";
 
 function App() {
   return (
@@ -11,17 +12,20 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/users">
-          <Users />
+        <Route path="/users/new">
+          <CreateUser />
         </Route>
         <Route path="/users/:userId">
-        <User />
-      </Route>
+          <User />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
 
-      <Route path="*">
-        <h1 style={{color: "red"}}>Page Not Found</h1>
-        <Link to='/'>Back Home</Link>
-      </Route>
+        <Route path="*">
+          <h1 style={{ color: "red" }}>Page Not Found</h1>
+          <Link to="/">Back Home</Link>
+        </Route>
       </Switch>
     </div>
   );

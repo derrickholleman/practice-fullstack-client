@@ -18,8 +18,13 @@ const Users = () => {
 
   return (
     <div>
-      <Link to="/">Home</Link>
-      <h3>The average age of our users is {avgAge.average_age} years old</h3>
+      <div className="users-links">
+        <Link to="/">Home</Link>
+        <Link to="/users/new">Add User</Link>
+      </div>
+      <h3>
+        The average age of our users is {avgAge.average_age} years old
+      </h3>
 
       {users.map((user) => (
         <div className="user-links" key={user.user_id}>

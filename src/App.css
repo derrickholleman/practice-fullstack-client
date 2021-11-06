@@ -3,7 +3,17 @@
   margin: 1rem auto;
 }
 
+h1, h3 {
+  margin-top: .75rem;
+  margin-bottom: 2rem;
+}
+
 .user-links a {
   display: block;
   margin: 1rem 0;
+  width: max-content;
+}
+
+.users-links a:not(:first-child) {
+  margin: 0 0.5rem;
 }
