@@ -30,7 +30,6 @@ export async function getAvgAge() {
 }
 
 export async function createUser(user) {
-  // const { name, email, etc } = user
   const options = {
     method: "POST",
     headers: {
@@ -42,6 +41,33 @@ export async function createUser(user) {
     const newUser = await fetch(`${URL}/users`, options);
     return await newUser.json();
   } catch (err) {
-    console.error(error)
+    console.error(error);
+  }
+}
+
+export async function updateUser(card) {
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(card),
+  };
+  try {
+    const updatedUser = await fetch(`${URL}/users/${card.id}`, options);
+    return await updatedUser.json();
+  } catch (err) {
+    console.error(error);
+  }
+}
+
+export async function deleteUser(userId) {
+  try {
+    const deletedUser = await fetch(`${URL}/users/${userId}`, {
+      method: "DELETE",
+    });
+    return await deletedUser.json();
+  } catch (err) {
+    console.error(err);
   }
 }
