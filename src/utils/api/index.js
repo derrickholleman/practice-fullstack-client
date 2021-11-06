@@ -1,4 +1,6 @@
-const URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+// const URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
+
+const URL = "http://localhost:5000"
 
 export async function listUsers() {
   try {
