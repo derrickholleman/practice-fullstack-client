@@ -63,10 +63,9 @@ export async function updateUser(card) {
 
 export async function deleteUser(userId) {
   try {
-    const deletedUser = await fetch(`${URL}/users/${userId}`, {
+    await fetch(`${URL}/users/${userId}`, {
       method: "DELETE",
     });
-    return await deletedUser.json();
   } catch (err) {
     console.error(err);
   }

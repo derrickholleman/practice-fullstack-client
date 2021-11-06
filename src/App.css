@@ -17,3 +17,7 @@ h1, h3 {
 .users-links a:not(:first-child) {
   margin: 0 0.5rem;
 }
+
+button:active {
+  transform: scale(.98);
+}

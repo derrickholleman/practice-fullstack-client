@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { createUser } from "./utils/api/index";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+const dayjs = require("dayjs");
 
 const CreateUser = () => {
   const initialFormState = {
@@ -34,7 +35,9 @@ const CreateUser = () => {
 
   return (
     <div>
+      <Link to="/users">Back to user list</Link>
       <h1>Add a new user</h1>
+
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label htmlFor="name">Name</Form.Label>
@@ -55,6 +58,7 @@ const CreateUser = () => {
             placeholder="Select your age"
             min="0"
             id="age"
+            required
             onChange={handleChange}
             value={formData.age}
           />
@@ -87,8 +91,10 @@ const CreateUser = () => {
           <Form.Control
             type="date"
             id="birthday"
+            required
             onChange={handleChange}
             value={formData.birthday}
+            max={dayjs().format("YYYY-MM-DD")}
           />
         </Form.Group>
 

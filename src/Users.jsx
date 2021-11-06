@@ -10,11 +10,11 @@ const Users = () => {
 
   useEffect(() => {
     listUsers().then(setUsers);
-  }, []);
+  }, [users]);
 
   useEffect(() => {
     getAvgAge().then(setAvgAge);
-  }, []);
+  }, [avgAge]);
 
   return (
     <div>
@@ -22,9 +22,7 @@ const Users = () => {
         <Link to="/">Home</Link>
         <Link to="/users/new">Add User</Link>
       </div>
-      <h3>
-        The average age of our users is {avgAge.average_age} years old
-      </h3>
+      <h3>The average age of our users is {avgAge.average_age} years old</h3>
 
       {users.map((user) => (
         <div className="user-links" key={user.user_id}>
