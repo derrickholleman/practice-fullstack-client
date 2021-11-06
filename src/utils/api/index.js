@@ -41,7 +41,7 @@ export async function createUser(user) {
     const newUser = await fetch(`${URL}/users`, options);
     return await newUser.json();
   } catch (err) {
-    console.error(error);
+    console.error(err);
   }
 }
 
@@ -57,7 +57,7 @@ export async function updateUser(card) {
     const updatedUser = await fetch(`${URL}/users/${card.id}`, options);
     return await updatedUser.json();
   } catch (err) {
-    console.error(error);
+    console.error(err);
   }
 }
 
