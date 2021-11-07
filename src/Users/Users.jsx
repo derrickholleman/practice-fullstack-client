@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import { listUsers, getAvgAge } from "./utils/api";
+import { listUsers, getAvgAge } from "../utils/api";
 
 const Users = () => {
   const [users, setUsers] = useState([]);

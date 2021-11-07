@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { readUser, updateUser } from "./utils/api/index";
+import { readUser, updateUser } from "../utils/api/index";
 import { useParams, useHistory } from "react-router-dom";
 import dayjs from "dayjs";
 
@@ -12,6 +12,7 @@ const EditUser = () => {
   const [user, setUser] = useState({});
 
   useEffect(() => {
+    // form fields fill with existing data
     readUser(userId).then(setUser);
   }, [userId]);
 
@@ -32,7 +33,7 @@ const EditUser = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
-    // set form data to default on close
+    // revert form data to original values on close
     readUser(userId).then(setUser);
   };
   const handleShow = () => setShow(true);

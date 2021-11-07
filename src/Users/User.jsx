@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { readUser } from "./utils/api";
+import { readUser, deleteUser } from "../utils/api";
 import { useParams, Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import { deleteUser } from "./utils/api";
 import EditUser from "./EditUser";
 const dayjs = require("dayjs");
 

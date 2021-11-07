@@ -1,9 +1,9 @@
 import "./App.css";
 import { Switch, Route, Link } from "react-router-dom";
-import Users from "./Users";
+import Users from "./Users/Users";
 import Home from "./Home";
-import User from "./User";
-import CreateUser from "./CreateUser";
+import User from "./Users/User";
+import CreateUser from "./Users/CreateUser";
 
 function App() {
   return (

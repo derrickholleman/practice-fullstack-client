@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { createUser } from "./utils/api/index";
+import { createUser } from "../utils/api/index";
 import { useHistory, Link } from "react-router-dom";
 const dayjs = require("dayjs");
 
