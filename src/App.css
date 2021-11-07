@@ -3,9 +3,17 @@
   margin: 1rem auto;
 }
 
-h1, h3 {
-  margin-top: .75rem;
+h1,
+h3 {
+  margin-top: 0.75rem;
   margin-bottom: 2rem;
+}
+
+.user-profile-btns {
+  display: flex;
+}
+.user-profile-btns button {
+  margin-right: 1rem;
 }
 
 .user-links a {
@@ -19,5 +27,5 @@ h1, h3 {
 }
 
 button:active {
-  transform: scale(.98);
+  transform: scale(0.98);
 }

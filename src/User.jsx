@@ -3,6 +3,7 @@ import { readUser } from "./utils/api";
 import { useParams, Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import { deleteUser } from "./utils/api";
+import EditUser from "./EditUser";
 const dayjs = require("dayjs");
 
 const User = () => {
@@ -31,9 +32,12 @@ const User = () => {
       <p>Address: {user.address}</p>
       <p>Email: {user.email}</p>
 
-      <Button variant="danger" onClick={handleDeleteUser}>
-        Delete User
-      </Button>
+      <div className="user-profile-btns">
+        <EditUser />
+        <Button variant="danger" onClick={handleDeleteUser}>
+          Delete User
+        </Button>
+      </div>
     </div>
   );
 };

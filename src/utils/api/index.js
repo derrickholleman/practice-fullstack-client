@@ -45,16 +45,16 @@ export async function createUser(user) {
   }
 }
 
-export async function updateUser(card) {
+export async function updateUser(user) {
   const options = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(card),
+    body: JSON.stringify(user),
   };
   try {
-    const updatedUser = await fetch(`${URL}/users/${card.id}`, options);
+    const updatedUser = await fetch(`${URL}/users/${user.user_id}`, options);
     return await updatedUser.json();
   } catch (err) {
     console.error(err);
