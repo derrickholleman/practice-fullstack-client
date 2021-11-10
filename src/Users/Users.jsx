@@ -9,11 +9,19 @@ const Users = () => {
   const { url } = useRouteMatch();
 
   useEffect(() => {
-    listUsers().then(setUsers);
+    let isMounted = true;
+    listUsers().then((res) => {
+      if (isMounted) setUsers(res);
+    });
+    return () => (isMounted = false);
   }, [users]);
 
   useEffect(() => {
-    getAvgAge().then(setAvgAge);
+    let isMounted = true;
+    getAvgAge().then((res) => {
+      if (isMounted) setAvgAge(res);
+    });
+    return () => (isMounted = false);
   }, [avgAge]);
 
   return (
