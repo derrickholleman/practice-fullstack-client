@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch } from "react-router-dom";
-import { listUsers, getAvgAge } from "../utils/api";
+import { listUsers } from "../utils/api";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [avgAge, setAvgAge] = useState({});
+  const [avgAge, setAvgAge] = useState(0);
 
   const { url } = useRouteMatch();
-
-  console.log(users)
 
   useEffect(() => {
     let isMounted = true;
@@ -20,12 +18,13 @@ const Users = () => {
   }, [users.length]);
 
   useEffect(() => {
-    let isMounted = true;
-    getAvgAge().then((res) => {
-      if (isMounted) setAvgAge(res);
-    });
-    return () => (isMounted = false);
-  }, []);
+    const getAvgAge = () => {
+      let totalAge = users.reduce((acc, user) => acc += user.age, 0)
+      let result = (totalAge / users.length).toFixed(0)
+      setAvgAge(result)
+    }
+    getAvgAge()
+  }, [users]);
 
   const sortUsers = () => {
     const sortedUsersList = [...users].sort((a, b) => a.name > b.name ? 1 : -1);
@@ -38,7 +37,7 @@ const Users = () => {
         <Link to="/">Home</Link>
         <Link to="/users/new">Add User</Link>
       </div>
-      <h3>The average age of our users is {avgAge.average_age} years old</h3>
+      <h3>The average age of our users is {avgAge} years old</h3>
 
       <button className="btn btn-primary" onClick={sortUsers}>
         Sort Alphabetically

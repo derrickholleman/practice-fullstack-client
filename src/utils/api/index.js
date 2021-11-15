@@ -20,15 +20,6 @@ export async function readUser(userId) {
   }
 }
 
-export async function getAvgAge() {
-  try {
-    const ageRes = await fetch(`${URL}/users/average-age`);
-    return await ageRes.json();
-  } catch (err) {
-    console.error(err);
-  }
-}
-
 export async function createUser(user) {
   const options = {
     method: "POST",
