@@ -13,7 +13,8 @@ const User = () => {
   const handleDeleteUser = () => {
     if (window.confirm("Do you really want to delete this user?")) {
       deleteUser(userId);
-      history.push("/users");
+      // refreshes users page to reflect delete
+      history.goBack();
     }
   };
 

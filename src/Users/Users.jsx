@@ -4,9 +4,11 @@ import { listUsers, getAvgAge } from "../utils/api";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [avgAge, setAvgAge] = useState([]);
+  const [avgAge, setAvgAge] = useState({});
 
   const { url } = useRouteMatch();
+
+  console.log(users)
 
   useEffect(() => {
     let isMounted = true;
@@ -14,7 +16,8 @@ const Users = () => {
       if (isMounted) setUsers(res);
     });
     return () => (isMounted = false);
-  }, [users]);
+    // watches the length of users before re rendering
+  }, [users.length]);
 
   useEffect(() => {
     let isMounted = true;
@@ -22,7 +25,12 @@ const Users = () => {
       if (isMounted) setAvgAge(res);
     });
     return () => (isMounted = false);
-  }, [avgAge]);
+  }, []);
+
+  const sortUsers = () => {
+    const sortedUsersList = [...users].sort((a, b) => a.name > b.name ? 1 : -1);
+    setUsers(sortedUsersList);
+  };
 
   return (
     <div>
@@ -31,6 +39,10 @@ const Users = () => {
         <Link to="/users/new">Add User</Link>
       </div>
       <h3>The average age of our users is {avgAge.average_age} years old</h3>
+
+      <button className="btn btn-primary" onClick={sortUsers}>
+        Sort Alphabetically
+      </button>
 
       {users.map((user) => (
         <div className="user-links" key={user.user_id}>
