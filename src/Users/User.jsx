@@ -3,7 +3,10 @@ import { readUser, deleteUser } from "../utils/api";
 import { useParams, Link, useHistory } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import EditUser from "./EditUser";
+// correct date format (otherwise it's off by one day)
 const dayjs = require("dayjs");
+const utc = require("dayjs/plugin/utc");
+dayjs.extend(utc);
 
 const User = () => {
   const [user, setUser] = useState({});
@@ -28,7 +31,7 @@ const User = () => {
       <h1>{user.name}</h1>
       <p>Age: {user.age}</p>
       <p>City: {user.city}</p>
-      <p>Birthday: {dayjs(user.birthday).format("MMMM DD")}</p>
+      <p>Birthday: {dayjs.utc(user.birthday).format("MMMM DD")}</p>
       <p>Address: {user.address}</p>
       <p>Email: {user.email}</p>
 
